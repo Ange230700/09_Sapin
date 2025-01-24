@@ -1,10 +1,9 @@
 // src\javascript\events\handlers.js
 
-import { printStars } from "../helpers/utilities.js";
+import { printStarsRectangle } from "../helpers/utilities.js";
 
 const handleLoadingOfDomContent = () => {
-  printStars(2);
-  printStars(5);
+  printStarsRectangle(5, 5);
 };
 
 export { handleLoadingOfDomContent };
