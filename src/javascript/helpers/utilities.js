@@ -40,19 +40,23 @@ function printLeftStarsTriangle(size = 1) {
   return leftStarsTriangle;
 }
 
-function printTopOfTree(height = 1) {
+function printTopOfTree(height = 1, level = 0, offset = 1) {
+  if (height < 1) return;
+
+  const indentation = printSpaces(offset);
   let topOfTree = "";
 
-  topOfTree += printSpaces(height + 1) + "+" + "\n";
-
-  const leftTriangle = printLeftStarsTriangle(height).split("\n");
+  const leftTriangle = printLeftStarsTriangle(height + level).split("\n");
   const filteredLeft = leftTriangle.filter((line) => line.trim() !== "");
 
-  const rightTriangle = printRightStarsTriangle(height).split("\n");
+  const rightTriangle = printRightStarsTriangle(height + level).split("\n");
   const filteredRight = rightTriangle.filter((line) => line.trim() !== "");
 
-  for (let row = 0; row < height - 1; row++) {
-    topOfTree += filteredLeft[row] + filteredRight[row] + "\n";
+  for (let row = level; row < height + level; row++) {
+    topOfTree +=
+      filteredLeft[row].replace(indentation, "") +
+      filteredRight[row].replace(indentation, "") +
+      "\n";
   }
 
   console.log(topOfTree);
