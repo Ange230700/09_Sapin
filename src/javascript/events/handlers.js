@@ -1,17 +1,11 @@
 // src\javascript\events\handlers.js
 
-import {
-  printStarsRectangle,
-  printRightStarsTriangle,
-  printLeftStarsTriangle,
-  printTopOfTree,
-} from "../helpers/utilities.js";
+import { printTopOfTree } from "../helpers/utilities.js";
 
 const handleLoadingOfDomContent = () => {
-  printStarsRectangle(5, 5);
-  printRightStarsTriangle(5);
-  printLeftStarsTriangle(5);
-  printTopOfTree(5);
+  printTopOfTree(3, 0);
+  printTopOfTree(3, 1);
+  printTopOfTree(3, 2);
 };
 
 export { handleLoadingOfDomContent };
