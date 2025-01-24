@@ -5,6 +5,11 @@ function printStars(numberOfStars = 1) {
   return starsString;
 }
 
+function printSpaces(numberOfSpaces = 1) {
+  const spacesString = " ".repeat(numberOfSpaces);
+  return spacesString;
+}
+
 function printStarsRectangle(height = 1, width = 1) {
   let starsRectangle = "";
 
@@ -25,4 +30,14 @@ function printRightStarsTriangle(size = 1) {
   console.log(rightStarsTriangle);
 }
 
-export { printStarsRectangle, printRightStarsTriangle };
+function printLeftStarsTriangle(size = 1) {
+  let leftStarsTriangle = "";
+
+  for (let row = 0; row < size; row++) {
+    leftStarsTriangle += printSpaces(size - row) + "/" + printStars(row) + "\n";
+  }
+
+  console.log(leftStarsTriangle);
+}
+
+export { printStarsRectangle, printRightStarsTriangle, printLeftStarsTriangle };
