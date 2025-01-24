@@ -13,7 +13,7 @@ function printSpaces(numberOfSpaces = 1) {
 function printStarsRectangle(height = 1, width = 1) {
   let starsRectangle = "";
 
-  for (let row = 1; row <= height; row++) {
+  for (let row = 0; row < height; row++) {
     starsRectangle += printStars(width) + "\n";
   }
 
@@ -24,10 +24,10 @@ function printRightStarsTriangle(size = 1) {
   let rightStarsTriangle = "";
 
   for (let row = 0; row < size; row++) {
-    rightStarsTriangle += printStars(row) + "\\" + "\n";
+    rightStarsTriangle += "|" + printStars(row) + "\\" + "\n";
   }
 
-  console.log(rightStarsTriangle);
+  return rightStarsTriangle;
 }
 
 function printLeftStarsTriangle(size = 1) {
@@ -37,7 +37,30 @@ function printLeftStarsTriangle(size = 1) {
     leftStarsTriangle += printSpaces(size - row) + "/" + printStars(row) + "\n";
   }
 
-  console.log(leftStarsTriangle);
+  return leftStarsTriangle;
 }
 
-export { printStarsRectangle, printRightStarsTriangle, printLeftStarsTriangle };
+function printTopOfTree(height = 1) {
+  let topOfTree = "";
+
+  topOfTree += printSpaces(height + 1) + "+" + "\n";
+
+  const leftTriangle = printLeftStarsTriangle(height).split("\n");
+  const filteredLeft = leftTriangle.filter((line) => line.trim() !== "");
+
+  const rightTriangle = printRightStarsTriangle(height).split("\n");
+  const filteredRight = rightTriangle.filter((line) => line.trim() !== "");
+
+  for (let row = 0; row < height - 1; row++) {
+    topOfTree += filteredLeft[row] + filteredRight[row] + "\n";
+  }
+
+  console.log(topOfTree);
+}
+
+export {
+  printStarsRectangle,
+  printRightStarsTriangle,
+  printLeftStarsTriangle,
+  printTopOfTree,
+};
