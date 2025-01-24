@@ -7,6 +7,7 @@ function printStars(numberOfStars = 1) {
 
 function printStarsRectangle(height = 1, width = 1) {
   let starsRectangle = "";
+
   for (let row = 1; row <= height; row++) {
     starsRectangle += printStars(width) + "\n";
   }
@@ -14,4 +15,14 @@ function printStarsRectangle(height = 1, width = 1) {
   console.log(starsRectangle);
 }
 
-export { printStarsRectangle };
+function printRightStarsTriangle(size = 1) {
+  let rightStarsTriangle = "";
+
+  for (let row = 1; row <= size; row++) {
+    rightStarsTriangle += printStars(row) + "\n";
+  }
+
+  console.log(rightStarsTriangle);
+}
+
+export { printStarsRectangle, printRightStarsTriangle };
