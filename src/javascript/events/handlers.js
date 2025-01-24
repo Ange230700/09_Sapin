@@ -1,11 +1,12 @@
 // src\javascript\events\handlers.js
 
-import { printTopOfTree } from "../helpers/utilities.js";
+import { printLevels } from "../helpers/utilities.js";
 
 const handleLoadingOfDomContent = () => {
-  printTopOfTree(3, 0);
-  printTopOfTree(3, 1);
-  printTopOfTree(3, 2);
+  printLevels(3, 0, 3);
+  printLevels(3, 1, 2);
+  printLevels(3, 2, 1);
+  printLevels(3, 3, 0);
 };
 
 export { handleLoadingOfDomContent };

@@ -40,7 +40,7 @@ function printLeftStarsTriangle(size = 1) {
   return leftStarsTriangle;
 }
 
-function printTopOfTree(height = 1, level = 0, offset = 1) {
+function printLevels(height = 1, level = 1, offset = 1) {
   if (height < 1) return;
 
   const indentation = printSpaces(offset);
@@ -53,10 +53,7 @@ function printTopOfTree(height = 1, level = 0, offset = 1) {
   const filteredRight = rightTriangle.filter((line) => line.trim() !== "");
 
   for (let row = level; row < height + level; row++) {
-    topOfTree +=
-      filteredLeft[row].replace(indentation, "") +
-      filteredRight[row].replace(indentation, "") +
-      "\n";
+    topOfTree += indentation + filteredLeft[row] + filteredRight[row] + "\n";
   }
 
   console.log(topOfTree);
@@ -66,5 +63,5 @@ export {
   printStarsRectangle,
   printRightStarsTriangle,
   printLeftStarsTriangle,
-  printTopOfTree,
+  printLevels,
 };
