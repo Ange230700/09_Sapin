@@ -18,8 +18,8 @@ function printStarsRectangle(height = 1, width = 1) {
 function printRightStarsTriangle(size = 1) {
   let rightStarsTriangle = "";
 
-  for (let row = 1; row <= size; row++) {
-    rightStarsTriangle += printStars(row) + "\n";
+  for (let row = 0; row < size; row++) {
+    rightStarsTriangle += printStars(row) + "\\" + "\n";
   }
 
   console.log(rightStarsTriangle);
